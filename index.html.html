@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Poesia Que Me Faltava!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            background-color: #ffffff; /* Fundo branco */
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            color: black; /* Cor preta */
+            font-size: 2.5em; /* Tamanho reduzido */
+        }
+        .poem {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .live-video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .countdown {
+            font-family: 'Roboto', sans-serif; /* Fonte diferente */
+            font-size: 2em;
+            color: black; /* Cor preta */
+            margin: 20px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <h1>A Poesia Que Me Faltava!</h1>
+    
+    <div class="poem">
+        <p>Acordo de manhã, vejo a foto da poesia que me faltava.<br>
+        Não dormi cedo, fiquei passando noites em claro,<br>
+        Noites que eu nunca imaginei passar.<br>
+        Passei a preferir a sua companhia, mais do que a minha,<br>
+        Imagino todos os meus dias com você!</p>
+        
+        <p>Espero, espero que seja para sempre.<br>
+        Faço isso pois eu te amo, você é o amor da minha vida.<br>
+        Você é o meu desejo diário, pessoa na qual eu sonhei.<br>
+        Te desejo o mundo, te prometo o mundo.</p>
+    </div>
+    
+    <video class="live-video" autoplay loop muted>
+        <source src="eu amo você.mp4" type="video/mp4">
+    </video>
+
+    <div class="countdown" id="countdown"></div>
+
+    <script>
+        const launchDate = new Date("2025-05-05T00:00:00").getTime();
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = "É o grande dia!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
